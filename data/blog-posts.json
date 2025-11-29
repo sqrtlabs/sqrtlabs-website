@@ -1,0 +1,136 @@
+{
+  "secure-prediction-market": {
+    "title": "How to design a secure prediction market",
+    "category": "DeFi & Protocol Design",
+    "readTime": "8 min read",
+    "date": "Nov 20, 2025",
+    "author": "SQRT Labs Team",
+    "color": "bg-green-50",
+    "content": [
+      "Prediction markets are one of the most interesting applications in DeFi. They allow users to bet on the outcome of real-world events, creating efficient price discovery mechanisms for everything from election results to sports outcomes.",
+      "But designing a secure prediction market is harder than it looks. There are several attack vectors you need to consider, from oracle manipulation to front-running to collusion between market makers.",
+      "The first thing to get right is your oracle design. Most prediction markets rely on external data to resolve outcomes. If an attacker can manipulate this data, they can steal funds from the protocol. We recommend using a combination of decentralized oracles like UMA's optimistic oracle with a dispute resolution mechanism.",
+      "Front-running is another major concern. In a prediction market, users who can see pending transactions have an unfair advantage. They can place bets right before the outcome is known. To prevent this, implement commit-reveal schemes where users first commit to their bet (by submitting a hash), then reveal it later.",
+      "Liquidity design matters too. AMM-based prediction markets need careful thought about their bonding curves. A simple constant product curve might not work well for binary outcomes. Consider using LMSR (Logarithmic Market Scoring Rule) or other specialized curves designed for prediction markets.",
+      "Finally, think about your settlement mechanism. What happens when an outcome is disputed? How do you handle edge cases like canceled events? Having a clear governance process for these situations is essential."
+    ],
+    "keyTakeaways": [
+      "Use decentralized oracles with dispute resolution",
+      "Implement commit-reveal to prevent front-running",
+      "Choose appropriate bonding curves for your market type",
+      "Design clear settlement and dispute processes"
+    ]
+  },
+  "l2-vs-appchain": {
+    "title": "When to choose an L2 vs an appchain",
+    "category": "Engineering Notes",
+    "readTime": "6 min read",
+    "date": "Nov 15, 2025",
+    "author": "SQRT Labs Team",
+    "color": "bg-blue-50",
+    "content": [
+      "One of the most common questions we get from teams is whether they should deploy on an L2 or build their own appchain. The answer depends on several factors that we'll explore in this post.",
+      "L2s like Arbitrum, Optimism, and Base offer the fastest path to market. You get instant access to existing liquidity, users, and infrastructure. For most applications, this is the right choice. The shared security model means you don't need to bootstrap your own validator set.",
+      "However, L2s come with tradeoffs. You share blockspace with other applications, which can lead to unpredictable gas costs during high-demand periods. You also have limited control over transaction ordering and MEV.",
+      "Appchains make sense when you need complete control over your execution environment. High-frequency trading applications, games with specific throughput requirements, or protocols that need custom precompiles are good candidates.",
+      "The economics are different too. On an L2, you pay fees to the network. With an appchain, you capture all the fees but need to cover your own infrastructure costs. This usually only makes sense at significant scale.",
+      "Our recommendation: Start on an L2, prove product-market fit, then consider migrating to an appchain if you hit specific bottlenecks. The appchain ecosystem is maturing rapidly with solutions like OP Stack and Arbitrum Orbit making deployment easier."
+    ],
+    "keyTakeaways": [
+      "L2s offer faster time to market and existing liquidity",
+      "Appchains provide control but require more resources",
+      "Start on L2, migrate to appchain only when needed",
+      "Consider OP Stack or Arbitrum Orbit for appchain deployment"
+    ]
+  },
+  "smart-contract-mistakes": {
+    "title": "Common smart contract mistakes and how to avoid them",
+    "category": "Engineering Notes",
+    "readTime": "10 min read",
+    "date": "Nov 10, 2025",
+    "author": "SQRT Labs Team",
+    "color": "bg-blue-50",
+    "content": [
+      "After auditing and building dozens of smart contracts, we've seen the same mistakes come up again and again. Here are the most common ones and how to avoid them.",
+      "Reentrancy remains the #1 vulnerability despite being well-known. The fix is simple: follow the checks-effects-interactions pattern and use reentrancy guards for any function that makes external calls. But developers still forget, especially in complex multi-contract systems.",
+      "Integer overflow/underflow was a huge issue before Solidity 0.8.0. Now the compiler checks by default, but some developers disable these checks for gas optimization without fully understanding the risks. Unless you're absolutely sure, leave them on.",
+      "Access control mistakes are surprisingly common. Forgetting to add `onlyOwner` modifiers, using tx.origin instead of msg.sender, or having broken initialization in upgradeable contracts. Always use OpenZeppelin's access control libraries.",
+      "Flash loan attacks exploit the ability to borrow large amounts without collateral within a single transaction. If your protocol relies on spot prices or can be manipulated by large trades, you're vulnerable. Use TWAPs and be very careful with any price-dependent logic.",
+      "Finally, storage collisions in upgradeable contracts. When upgrading, you need to be extremely careful about storage layout. Tools like OpenZeppelin's upgrade plugins can help, but this remains a common source of bugs."
+    ],
+    "keyTakeaways": [
+      "Always use checks-effects-interactions and reentrancy guards",
+      "Don't disable overflow checks without deep understanding",
+      "Use established access control libraries",
+      "Protect against flash loan attacks with TWAPs",
+      "Be careful with storage layout in upgradeable contracts"
+    ]
+  },
+  "farcaster-growth-loops": {
+    "title": "Why Farcaster miniapps unlock new growth loops",
+    "category": "Farcaster & Miniapps",
+    "readTime": "5 min read",
+    "date": "Nov 5, 2025",
+    "author": "SQRT Labs Team",
+    "color": "bg-purple-50",
+    "content": [
+      "Farcaster miniapps (formerly frames) are changing how we think about distribution in web3. They embed directly into the social feed, creating viral loops that weren't possible before.",
+      "Traditional web3 apps suffer from a cold start problem. Users need to leave the app they're in, connect their wallet, approve transactions, and complete actions. Each step loses users. Miniapps eliminate most of these friction points.",
+      "The magic is in the context. When someone shares a miniapp, their followers see it with social proof attached. It's not an ad—it's content from someone they follow. This changes conversion rates dramatically.",
+      "We've seen miniapps achieve 30%+ conversion rates from impression to action. Compare that to typical crypto ad campaigns that struggle to hit 1%. The difference is trust and context.",
+      "Building effective miniapps requires thinking differently about UX. You have limited space and attention. Every action should feel native to the social experience. Think 'what would make someone want to share this?' rather than 'what features should we add?'"
+    ],
+    "keyTakeaways": [
+      "Miniapps reduce friction dramatically compared to traditional dApps",
+      "Social context and proof drive much higher conversion",
+      "Design for sharing, not just functionality",
+      "30%+ conversion rates are achievable with good UX"
+    ]
+  },
+  "mobile-first-dapps": {
+    "title": "How to build mobile-first dApps without pain",
+    "category": "Product Thinking in Web3",
+    "readTime": "7 min read",
+    "date": "Oct 30, 2025",
+    "author": "SQRT Labs Team",
+    "color": "bg-yellow-50",
+    "content": [
+      "Most dApps are still desktop-first, but most users are on mobile. If you want mainstream adoption, you need to think mobile-first from day one.",
+      "The biggest challenge is wallet connectivity. Mobile browsers don't support wallet extensions like desktop. You need to use WalletConnect or embedded wallets. We recommend supporting both—WalletConnect for power users, embedded wallets (like Privy or Dynamic) for new users.",
+      "Transaction signing on mobile needs extra thought. Desktop users are used to pop-ups, but mobile pop-ups are jarring. Consider batching transactions, using session keys for repeated actions, or moving to gasless transactions with relayers.",
+      "Performance matters more on mobile. Users have slower connections and less powerful devices. Lazy load everything, optimize your bundle size, and consider server-side rendering for initial loads. Next.js with app router handles most of this well.",
+      "Testing is crucial. Don't just test on the latest iPhone. Test on mid-range Android devices with slow connections. Use Chrome DevTools' throttling features to simulate real-world conditions.",
+      "Finally, think about progressive web apps (PWAs). They let users 'install' your dApp on their home screen without going through app stores. This bypasses Apple's and Google's restrictions on crypto apps."
+    ],
+    "keyTakeaways": [
+      "Support both WalletConnect and embedded wallets",
+      "Batch transactions and use session keys",
+      "Optimize performance for mid-range devices",
+      "Consider PWAs to bypass app store restrictions"
+    ]
+  },
+  "gas-optimization": {
+    "title": "Real-world approaches to gas optimization",
+    "category": "Engineering Notes",
+    "readTime": "12 min read",
+    "date": "Oct 25, 2025",
+    "author": "SQRT Labs Team",
+    "color": "bg-blue-50",
+    "content": [
+      "Gas optimization is an art. Small changes can save users significant money, but premature optimization can make code unreadable and bug-prone. Here's how we approach it.",
+      "Start by profiling. Use tools like Foundry's gas reports to understand where gas is actually being spent. Often, the expensive parts aren't where you'd expect. Storage operations, loops, and external calls are the usual culprits.",
+      "Storage is expensive—21,000 gas for a new slot, 5,000 for updates. Pack your variables (multiple uint8s in one slot), use mappings instead of arrays when possible, and cache storage reads in memory variables.",
+      "Calldata vs memory matters for function parameters. Use calldata for read-only array parameters—it's cheaper than memory. For structs that you're only reading, calldata saves significant gas.",
+      "Loops are dangerous. Unbounded loops can make your contract unusable if gas costs exceed block limits. If you need to iterate over large datasets, consider patterns like pagination or off-chain computation with on-chain verification.",
+      "Assembly can save gas but use it sparingly. It's hard to audit and easy to introduce bugs. Common safe patterns: custom errors, efficient keccak256 hashing, and optimized memory operations. For anything complex, stick with Solidity.",
+      "Don't forget about deployment costs. Longer bytecode costs more to deploy. Remove unused functions, use libraries for repeated code, and consider proxy patterns for large contracts."
+    ],
+    "keyTakeaways": [
+      "Profile before optimizing—find the real bottlenecks",
+      "Pack storage variables and cache reads",
+      "Use calldata for read-only parameters",
+      "Avoid unbounded loops, use pagination patterns",
+      "Assembly is powerful but risky—use sparingly"
+    ]
+  }
+}
