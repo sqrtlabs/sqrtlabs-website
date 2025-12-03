@@ -16,6 +16,7 @@ import projectsData from "@/data/projects.json"
 import { ArticleStructuredData } from "@/components/structured-data"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
+import type { Metadata } from "next"
 
 type TeamMember = {
   id: string
@@ -38,7 +39,7 @@ type ProjectData = {
   // other fields...
 }
 
-export async function generateMetadata({ params }: { params: Promise<{ id: string }> }) {
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
   const { id } = await params
   const member = teamData.find((m) => m.id === id)
 
@@ -48,9 +49,32 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
     }
   }
 
+  const title = `${member.name} - ${member.role} | SQRT Labs`
+  const description = member.bio
+
   return {
-    title: `${member.name} - ${member.role} | SQRT Labs`,
-    description: member.bio,
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      type: "profile",
+      url: `https://sqrtlabs.com/team/${member.id}`,
+      images: [
+        {
+          url: "https://sqrtlabs.com/opengraph-image", // Use default or specific if available
+          width: 1200,
+          height: 630,
+          alt: `${member.name} - ${member.role}`,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      creator: "@sqrtlabs", // or member's twitter handle if we want
+    },
   }
 }
 

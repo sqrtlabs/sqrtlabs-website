@@ -14,9 +14,24 @@ import {
 import teamData from "@/data/team.json"
 import { ArticleStructuredData } from "@/components/structured-data"
 
-export const metadata = {
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
   title: "Team | SQRT Labs",
-  description: "Meet the developers behind SQRT Labs.",
+  description: "Meet the developers behind SQRT Labs. The builders, thinkers, and creators making Web3 accessible.",
+  openGraph: {
+    title: "Team | SQRT Labs",
+    description: "Meet the developers behind SQRT Labs. The builders, thinkers, and creators making Web3 accessible.",
+    url: "https://sqrtlabs.com/team",
+    siteName: "SQRT Labs",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Team | SQRT Labs",
+    description: "Meet the developers behind SQRT Labs. The builders, thinkers, and creators making Web3 accessible.",
+    creator: "@sqrtlabs",
+  },
 }
 
 export default function TeamPage() {
