@@ -199,7 +199,7 @@ export default function ProjectsPage() {
                       <div className="relative z-10 space-y-4">
                         {project.featured && (
                           <div className="flex items-center gap-2">
-                            <Badge variant="secondary" className="bg-white/80">
+                            <Badge variant="secondary" className="bg-white/80 text-black">
                               Featured
                             </Badge>
                             <HandDrawnCheck className="w-4 h-4 text-green-600" />

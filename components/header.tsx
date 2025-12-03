@@ -107,7 +107,7 @@ export function Header() {
             { name: "Home", href: "/" },
             { name: "About", href: "/about" },
             { name: "Work", href: "/work" },
-            { name: "Blog", href: "/blog" },
+            // { name: "Blog", href: "/blog" },
             { name: "Team", href: "/team" },
           ].map((item, i) => (
             <motion.div
@@ -173,7 +173,7 @@ export function Header() {
                   { name: "Home", href: "/" },
                   { name: "About", href: "/about" },
                   { name: "Work", href: "/work" },
-                  { name: "Blog", href: "/blog" },
+                  // { name: "Blog", href: "/blog" },
                   { name: "Team", href: "/team" },
                 ].map((item, i) => (
                   <motion.div

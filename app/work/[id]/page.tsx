@@ -138,7 +138,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
             <div>
               <div className="flex flex-wrap gap-2 mb-4">
                 {project.tags.map((tag) => (
-                  <Badge key={tag} variant="secondary" className="bg-white/80">
+                  <Badge key={tag} variant="secondary" className="bg-white/80 text-black">
                     {tag}
                   </Badge>
                 ))}

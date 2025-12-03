@@ -73,7 +73,7 @@ export function Footer() {
                 </svg>
               </h4>
               <nav className="flex flex-col gap-2">
-                {["Home", "About", "Work", "Blog", "Team"].map((item, i) => (
+                {["Home", "About", "Work", /* "Blog", */ "Team"].map((item, i) => (
                   <Link
                     key={item}
                     href={item === "Home" ? "/" : `/${item.toLowerCase()}`}
