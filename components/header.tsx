@@ -103,19 +103,25 @@ export function Header() {
 
         {/* Desktop Navigation */}
         <nav className="hidden items-center gap-8 md:flex">
-          {["About", "Projects", "Blog"].map((item, i) => (
+          {[
+            { name: "Home", href: "/" },
+            { name: "About", href: "/about" },
+            { name: "Work", href: "/work" },
+            { name: "Blog", href: "/blog" },
+            { name: "Team", href: "/team" },
+          ].map((item, i) => (
             <motion.div
-              key={item}
+              key={item.name}
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 + i * 0.1 }}
               className="relative group"
             >
               <Link
-                href={`/${item.toLowerCase()}`}
+                href={item.href}
                 className="text-sm font-medium text-foreground transition-colors hover:text-primary"
               >
-                {item}
+                {item.name}
               </Link>
               <HandDrawnUnderline className="absolute -bottom-1 left-0 w-full h-2 text-primary opacity-0 group-hover:opacity-100 transition-opacity" />
             </motion.div>
@@ -163,20 +169,26 @@ export function Header() {
           >
             <div className="container mx-auto px-4 py-4">
               <div className="flex flex-col gap-1">
-                {["About", "Projects", "Blog"].map((item, i) => (
+                {[
+                  { name: "Home", href: "/" },
+                  { name: "About", href: "/about" },
+                  { name: "Work", href: "/work" },
+                  { name: "Blog", href: "/blog" },
+                  { name: "Team", href: "/team" },
+                ].map((item, i) => (
                   <motion.div
-                    key={item}
+                    key={item.name}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.05 * i }}
                   >
                     <Link
-                      href={`/${item.toLowerCase()}`}
+                      href={item.href}
                       onClick={() => setMobileMenuOpen(false)}
                       className="flex items-center py-3 px-4 rounded-xl text-foreground font-medium hover:bg-muted transition-colors border-2 border-transparent hover:border-border"
                     >
                       <span className="relative">
-                        {item}
+                        {item.name}
                         <HandDrawnUnderline className="absolute -bottom-1 left-0 w-full h-1.5 text-primary/30" />
                       </span>
                     </Link>

@@ -52,8 +52,9 @@ export function TrustedSection() {
                       i === 0 ? "bg-yellow-100" : i === 1 ? "bg-blue-100" : i === 2 ? "bg-green-100" : "bg-pink-100"
                     }`}
                     style={{ transform: `rotate(${i % 2 === 0 ? -1 : 1}deg)` }}
+                    suppressHydrationWarning
                   >
-                    <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-full bg-white/60 flex items-center justify-center">
+                    <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-full bg-white/60 flex items-center justify-center" suppressHydrationWarning>
                       <client.icon className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-gray-700" />
                     </div>
 

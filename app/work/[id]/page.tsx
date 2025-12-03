@@ -6,7 +6,7 @@ import { Footer } from "@/components/footer"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
-import { ArrowLeft, ArrowRight, Check } from "lucide-react"
+import { ArrowLeft, ArrowRight, Check, Github, Globe, Youtube, Heart, MapPin, Calendar, ShieldCheck, ExternalLink } from "lucide-react"
 import { 
   DoodleElements,
   HandDrawnUnderline,
@@ -20,6 +20,7 @@ import {
 import projectsData from "@/data/projects.json"
 import type { Metadata } from "next"
 import { ArticleStructuredData } from "@/components/structured-data"
+import Image from "next/image"
 
 type ProjectData = {
   title: string
@@ -35,6 +36,16 @@ type ProjectData = {
   techStack: string[]
   timeline: string
   team: string
+  subtitle?: string
+  date?: string
+  likes?: number
+  location?: string
+  github?: string
+  demo?: string
+  projectLink?: string
+  youtubeId?: string
+  category?: string
+  verified?: boolean
 }
 
 // Export generateMetadata function for dynamic metadata
@@ -82,7 +93,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
           <div className="text-center">
             <h1 className="text-2xl font-bold mb-4">Project not found</h1>
             <Button asChild>
-              <Link href="/projects">Back to Projects</Link>
+              <Link href="/work">Back to Work</Link>
             </Button>
           </div>
         </main>
@@ -103,7 +114,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
       <ArticleStructuredData 
         title={`${project.title} | SQRT Labs Projects`}
         description={project.longDescription.substring(0, 160) + "..."}
-        date={new Date().toISOString()}
+        date="2024-03-20T00:00:00.000Z"
         author="SQRT Labs Team"
       />
       <main className="flex-1">
@@ -116,11 +127,11 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
             {/* Back button */}
             <div className="mb-8">
               <Link
-                href="/projects"
+                href="/work"
                 className="inline-flex items-center gap-2 text-foreground hover:text-foreground/80 transition-colors"
               >
                 <ArrowLeft className="w-4 h-4" />
-                <span className="text-sm font-medium">Back to Projects</span>
+                <span className="text-sm font-medium">Back to Work</span>
               </Link>
             </div>
 
@@ -133,117 +144,118 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
                 ))}
               </div>
 
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold font-display mb-6 relative inline-block">
-                {project.title}
-                <HandDrawnUnderline className="absolute -bottom-2 left-0 w-full h-3 text-primary/50" />
-              </h1>
-
-              <p className="text-lg md:text-xl text-foreground leading-relaxed max-w-3xl">{project.longDescription}</p>
-
-              <div className="flex flex-wrap gap-6 mt-8">
-                <div className="flex items-center gap-2">
-                  <span className="text-sm text-foreground">Timeline:</span>
-                  <span className="text-sm font-medium">{project.timeline}</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="text-sm text-foreground">Team:</span>
-                  <span className="text-sm font-medium">{project.team}</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Challenges & Solutions */}
-        <section className="py-16 md:py-24 relative">
-          <div className="container mx-auto max-w-4xl px-4">
-            <div className="grid md:grid-cols-2 gap-8 md:gap-12">
-              {/* Challenges */}
-              <div>
-                <div className="relative">
-                  <PushPin className="absolute -top-4 left-4 w-6 h-6 z-10" color="text-red-500" />
-                  <div className="bg-red-50 p-6 shadow-lg">
-                    <h2 className="text-xl font-bold mb-4 font-display">
-                      <MarkerHighlight color="bg-red-200/40">Challenges</MarkerHighlight>
-                    </h2>
-                    <ul className="space-y-3">
-                      {project.challenges.map((challenge, i) => (
-                        <li key={i} className="flex items-start gap-3">
-                          <span className="text-red-500 font-mono text-sm mt-0.5">!</span>
-                          <span className="text-foreground text-sm leading-relaxed">{challenge}</span>
-                        </li>
-                      ))}
-                    </ul>
+              <div className="flex items-center gap-3 mb-2">
+                 <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold font-display relative inline-block">
+                  {project.title}
+                  <HandDrawnUnderline className="absolute -bottom-2 left-0 w-full h-3 text-primary/50" />
+                </h1>
+                {project.verified && (
+                  <div className="bg-blue-500/10 p-1 rounded-full text-blue-600" title="Verified Project">
+                    <ShieldCheck className="w-6 h-6 md:w-8 md:h-8" />
                   </div>
+                )}
+              </div>
+              
+              {project.subtitle && (
+                <p className="text-lg md:text-xl font-medium text-muted-foreground mt-4 mb-6">{project.subtitle}</p>
+              )}
+
+              {/* YouTube Video or Main Image */}
+              {project.youtubeId ? (
+                <div className="my-8 rounded-xl overflow-hidden shadow-lg border-2 border-white/50 bg-black aspect-video relative group">
+                  <iframe 
+                    width="100%" 
+                    height="100%" 
+                    src={`https://www.youtube.com/embed/${project.youtubeId}`} 
+                    title={project.title} 
+                    frameBorder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowFullScreen 
+                    className="absolute inset-0 w-full h-full"
+                  ></iframe>
+                </div>
+              ) : null}
+
+              <div className="flex flex-wrap gap-4 md:gap-8 my-6 text-sm md:text-base text-muted-foreground">
+                 {project.date && (
+                   <div className="flex items-center gap-2">
+                     <Calendar className="w-4 h-4" />
+                     <span>{project.date}</span>
+                   </div>
+                 )}
+                 {project.likes && (
+                   <div className="flex items-center gap-2">
+                     <Heart className="w-4 h-4" />
+                     <span>{project.likes} Likes</span>
+                   </div>
+                 )}
+                 {project.location && (
+                   <div className="flex items-center gap-2">
+                     <MapPin className="w-4 h-4" />
+                     <span>{project.location}</span>
+                   </div>
+                 )}
+              </div>
+
+              {/* Links */}
+              <div className="flex flex-wrap gap-4 mb-8">
+                {project.demo && (
+                  <Button asChild size="lg" className="rounded-xl gap-2">
+                    <Link href={project.demo} target="_blank">
+                      <Globe className="w-4 h-4" />
+                      Live Demo
+                    </Link>
+                  </Button>
+                )}
+                {project.github && (
+                  <Button asChild variant="outline" size="lg" className="rounded-xl gap-2 bg-white/50 hover:bg-white/80">
+                     <Link href={project.github} target="_blank">
+                       <Github className="w-4 h-4" />
+                       GitHub
+                     </Link>
+                  </Button>
+                )}
+                {project.projectLink && !project.demo && (
+                   <Button asChild variant="outline" size="lg" className="rounded-xl gap-2 bg-white/50 hover:bg-white/80">
+                     <Link href={project.projectLink} target="_blank">
+                       <ExternalLink className="w-4 h-4" />
+                       View Project
+                     </Link>
+                   </Button>
+                )}
+              </div>
+
+              <div className="prose prose-lg dark:prose-invert max-w-none">
+                 <p className="text-lg md:text-xl text-foreground leading-relaxed">{project.longDescription}</p>
+              </div>
+
+              {/* Tech Stack */}
+              <div className="mt-12 pt-8 border-t border-black/10">
+                <h2 className="text-xl font-bold font-display mb-4">Tech Stack & Skills</h2>
+                <div className="flex flex-wrap gap-2">
+                  {project.techStack.map((tech) => (
+                    <span
+                      key={tech}
+                      className="px-3 py-1 bg-white/60 rounded-md text-sm font-medium text-foreground border border-black/5"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                  {/* Also show skills if different from tech stack, or merge them? Logic can be refined */}
+                </div>
+              </div>
+              
+              <div className="flex flex-wrap gap-6 mt-8 text-sm text-muted-foreground">
+                <div className="flex items-center gap-2">
+                  <span className="font-semibold text-foreground">Timeline:</span>
+                  <span>{project.timeline}</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="font-semibold text-foreground">Team:</span>
+                  <span>{project.team}</span>
                 </div>
               </div>
 
-              {/* Solutions */}
-              <div>
-                <div className="relative">
-                  <PushPin className="absolute -top-4 left-4 w-6 h-6 z-10" color="text-green-500" />
-                  <div className="bg-green-50 p-6 shadow-lg">
-                    <h2 className="text-xl font-bold mb-4 font-display">
-                      <MarkerHighlight color="bg-green-200/40">Solutions</MarkerHighlight>
-                    </h2>
-                    <ul className="space-y-3">
-                      {project.solutions.map((solution, i) => (
-                        <li key={i} className="flex items-start gap-3">
-                          <HandDrawnCheck className="w-5 h-5 text-green-600 shrink-0 mt-0.5" />
-                          <span className="text-foreground text-sm leading-relaxed">{solution}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Results */}
-        <section className="py-16 md:py-24 bg-muted/30 relative">
-          <NotebookLines className="opacity-15" />
-          <div className="container mx-auto max-w-4xl px-4">
-            <div className="text-center mb-12">
-              <h2 className="text-2xl md:text-3xl font-bold font-display relative inline-block">
-                Results
-                <HandDrawnCircle className="absolute -inset-4 w-[calc(100%+2rem)] h-[calc(100%+2rem)] text-primary/30" />
-              </h2>
-            </div>
-
-            <div className="grid sm:grid-cols-2 gap-6">
-              {project.results.map((result, i) => (
-                <div key={i}>
-                  <SketchyCard className="h-full bg-card" delay={0.1 * i}>
-                    <div className="flex items-start gap-4 p-4">
-                      <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center shrink-0">
-                        <Check className="w-4 h-4 text-primary" />
-                      </div>
-                      <p className="text-foreground font-medium">{result}</p>
-                    </div>
-                  </SketchyCard>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Tech Stack */}
-        <section className="py-16 md:py-24 relative">
-          <div className="container mx-auto max-w-4xl px-4">
-            <div className="text-center mb-8">
-              <h2 className="text-xl font-bold font-display mb-6">Tech Stack</h2>
-              <div className="flex flex-wrap justify-center gap-3">
-                {project.techStack.map((tech, i) => (
-                  <span
-                    key={tech}
-                    className="px-4 py-2 bg-muted rounded-lg text-sm font-mono text-foreground border border-border"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
             </div>
           </div>
         </section>
@@ -254,7 +266,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
             <div className="flex justify-between items-center">
               {prevProject ? (
                 <Link
-                  href={`/projects/${prevProject}`}
+                  href={`/work/${prevProject}`}
                   className="group flex items-center gap-2 text-foreground hover:text-foreground/80 transition-colors"
                 >
                   <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
@@ -266,7 +278,7 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
 
               {nextProject ? (
                 <Link
-                  href={`/projects/${nextProject}`}
+                  href={`/work/${nextProject}`}
                   className="group flex items-center gap-2 text-foreground hover:text-foreground/80 transition-colors"
                 >
                   <span className="text-sm font-medium">Next Project</span>

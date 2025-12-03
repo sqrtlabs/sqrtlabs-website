@@ -1,0 +1,58 @@
+[
+  {
+    "id": "sarvagna-kadiya",
+    "name": "Sarvagna Kadiya",
+    "role": "Blockchain Developer",
+    "bio": "Expert in Solidity, smart contract architecture, and DeFi protocols. Passionate about building secure and efficient decentralized applications.",
+    "skills": ["Solidity", "Hardhat", "Foundry", "DeFi", "Smart Contracts", "EVM"],
+    "socials": {
+      "github": "https://github.com/sarvagnakadiya",
+      "twitter": "https://twitter.com/sarvagnakadiya",
+      "linkedin": "https://linkedin.com/in/sarvagnakadiya"
+    },
+    "projects": ["Coincept", "FluidPay", "ChainQ"],
+    "image": "/team/sarvagna.jpg"
+  },
+  {
+    "id": "bhadresh-makvana",
+    "name": "Bhadresh Makvana",
+    "role": "Fullstack Blockchain Developer",
+    "bio": "Versatile developer bridging the gap between frontend, backend, and blockchain. scalable web3 applications with modern tech stacks.",
+    "skills": ["React", "Next.js", "Node.js", "Solidity", "Web3", "System Design"],
+    "socials": {
+      "github": "https://github.com/bhadreshmakvana",
+      "twitter": "https://twitter.com/bhadreshmakvana",
+      "linkedin": "https://linkedin.com/in/bhadreshmakvana"
+    },
+    "projects": ["Coincept", "BasedJack"],
+    "image": "/team/bhadresh.jpg"
+  },
+  {
+    "id": "deepak-rathore",
+    "name": "Deepak Rathore",
+    "role": "Blockchain Fullstack Developer",
+    "bio": "Fullstack engineer with a deep focus on Web3 integration. Building seamless dApp experiences from smart contract to UI.",
+    "skills": ["Solidity", "React", "Web3.js", "Ethers.js", "The Graph"],
+    "socials": {
+      "github": "https://github.com/deepakrathore",
+      "twitter": "https://twitter.com/deepakrathore",
+      "linkedin": "https://linkedin.com/in/deepakrathore"
+    },
+    "projects": ["HandShake", "DropZone"],
+    "image": "/team/deepak.jpg"
+  },
+  {
+    "id": "jaydeep-patel",
+    "name": "Jaydeep Patel",
+    "role": "Senior Frontend Developer",
+    "bio": "Frontend specialist crafting pixel-perfect, high-performance user interfaces. Obsessed with UX and interaction design.",
+    "skills": ["React", "TypeScript", "Tailwind CSS", "Framer Motion", "UI/UX"],
+    "socials": {
+      "github": "https://github.com/jaydip676",
+      "twitter": "https://twitter.com/jaydeeppatel",
+      "linkedin": "https://linkedin.com/in/jaydeeppatel"
+    },
+    "projects": ["DualSign", "Uniswap-clone"],
+    "image": "/team/jaydeep.jpg"
+  }
+]

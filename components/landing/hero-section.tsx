@@ -8,7 +8,6 @@ import { FadeUp } from "@/components/ui/animated-text"
 import {
   DoodleElements,
   HandDrawnArrow,
-  HandDrawnCircle,
   HandDrawnUnderline,
   StickyNote,
   Annotation,
@@ -112,10 +111,8 @@ export function HeroSection() {
             </span>
             <span className="block mt-2 relative inline-block">
               <span className="relative z-10">Shipping with</span>
-              {/* Hand-drawn circle around "confidence" */}
               <span className="relative inline-block ml-2 sm:ml-3">
                 <span className="relative z-10 text-primary">confidence</span>
-                <HandDrawnCircle className="absolute -inset-2 sm:-inset-4 w-[calc(100%+1rem)] sm:w-[calc(100%+2rem)] h-[calc(100%+1rem)] sm:h-[calc(100%+2rem)] text-primary/40" />
               </span>
               <span className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl">.</span>
             </span>
@@ -165,7 +162,7 @@ export function HeroSection() {
                 asChild
                 className="w-full sm:w-auto rounded-xl px-6 sm:px-8 text-sm sm:text-base font-semibold h-12 sm:h-14 border-2 border-foreground bg-background text-foreground hover:bg-muted relative overflow-visible shadow-[4px_4px_0px_0px] shadow-secondary/40 hover:shadow-[2px_2px_0px_0px] hover:shadow-secondary/40 transition-all"
               >
-                <Link href="/projects">
+                <Link href="/work">
                   Explore our work
                   <ScribbleDecoration variant={2} className="absolute -right-3 -top-3 w-6 h-6 text-primary/40" />
                 </Link>

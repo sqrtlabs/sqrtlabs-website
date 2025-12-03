@@ -590,7 +590,7 @@ export function DoodleElements({ className = "" }: { className?: string }) {
       </motion.svg>
 
       {/* Arrow doodle */}
-      <motion.svg
+      {/* <motion.svg
         className="absolute top-[75%] left-[20%] w-12 h-8 text-secondary/20"
         viewBox="0 0 50 30"
         initial={{ opacity: 0, x: -10 }}
@@ -603,7 +603,7 @@ export function DoodleElements({ className = "" }: { className?: string }) {
           strokeWidth="2"
           strokeLinecap="round"
         />
-      </motion.svg>
+      </motion.svg> */}
     </div>
   )
 }

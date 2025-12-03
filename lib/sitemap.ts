@@ -24,7 +24,7 @@ const staticRoutes: Route[] = [
     priority: 0.8
   },
   {
-    url: '/projects',
+    url: '/work',
     lastModified: new Date().toISOString(),
     changeFrequency: 'weekly',
     priority: 0.9
@@ -62,7 +62,7 @@ async function getProjectRoutes(): Promise<Route[]> {
     const projects = await import('@/data/projects.json')
     
     return Object.keys(projects.default).map(id => ({
-      url: `/projects/${id}`,
+      url: `/work/${id}`,
       lastModified: new Date().toISOString(),
       changeFrequency: 'monthly',
       priority: 0.7

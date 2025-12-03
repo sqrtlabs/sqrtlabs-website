@@ -1,12 +1,12 @@
 import type { Metadata } from "next"
 
 export const projectsMetadata: Metadata = {
-  title: "Projects | SQRT Labs",
+  title: "Work | SQRT Labs",
   description: "Explore our portfolio of blockchain projects including DeFi protocols, dApps, and Web3 infrastructure.",
   openGraph: {
-    title: "Projects | SQRT Labs",
+    title: "Work | SQRT Labs",
     description: "Explore our portfolio of blockchain projects including DeFi protocols, dApps, and Web3 infrastructure.",
-    url: `${process.env.NEXT_PUBLIC_SITE_URL || "https://sqrtlabs.com"}/projects`,
+    url: `${process.env.NEXT_PUBLIC_SITE_URL || "https://sqrtlabs.com"}/work`,
     siteName: "SQRT Labs",
     images: [
       {
@@ -21,7 +21,7 @@ export const projectsMetadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Projects | SQRT Labs",
+    title: "Work | SQRT Labs",
     description: "Explore our portfolio of blockchain projects including DeFi protocols, dApps, and Web3 infrastructure.",
     creator: "@sqrtlabs",
     images: [`${process.env.NEXT_PUBLIC_SITE_URL || "https://sqrtlabs.com"}/twitter-image`],

@@ -39,6 +39,17 @@ type ProjectData = {
   techStack: string[]
   timeline: string
   team: string
+  // optional fields coming from the new projects data
+  subtitle?: string
+  date?: string
+  likes?: number
+  location?: string
+  github?: string
+  demo?: string
+  projectLink?: string
+  youtubeId?: string
+  category?: string
+  verified?: boolean
 }
 
 const projects = Object.entries(projectsData as Record<string, ProjectData>).map(([id, data]) => ({
@@ -85,7 +96,7 @@ export default function ProjectsPage() {
       <ArticleStructuredData 
         title="Projects | SQRT Labs"
         description="Explore our portfolio of blockchain projects including DeFi protocols, dApps, and Web3 infrastructure."
-        date={new Date().toISOString()}
+        date="2024-03-20T00:00:00.000Z"
         author="SQRT Labs Team"
       />
       <main className="flex-1">
@@ -160,7 +171,7 @@ export default function ProjectsPage() {
                   {/* Push pin */}
                   <PushPin className="absolute -top-3 left-6 w-6 h-6 z-20" color="text-blue-500" />
 
-                  <Link href={`/projects/${project.id}`}>
+                  <Link href={`/work/${project.id}`}>
                     <div className={`${project.color} p-6 shadow-lg relative h-full cursor-pointer`}>
                       {/* Hand-drawn border */}
                       <svg
@@ -198,7 +209,10 @@ export default function ProjectsPage() {
                           {project.title}
                           <HandDrawnUnderline className="absolute -bottom-1 left-0 w-full h-2 text-gray-400/50" />
                         </h3>
-                        <p className="text-foreground leading-relaxed text-sm">{project.description}</p>
+                        {project.subtitle && (
+                          <p className="text-sm text-muted-foreground">{project.subtitle}</p>
+                        )}
+                        <p className="text-foreground leading-relaxed text-sm line-clamp-3">{project.description}</p>
                         <div className="flex flex-wrap gap-2 pt-2">
                           {project.tags.map((tag) => (
                             <span

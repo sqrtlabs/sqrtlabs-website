@@ -3,14 +3,10 @@ import type { Metadata } from "next"
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
 
-import { Raleway, Syne, Geist as V0_Font_Geist, Geist_Mono as V0_Font_Geist_Mono, Source_Serif_4 as V0_Font_Source_Serif_4 } from 'next/font/google'
+import { Raleway, Syne } from 'next/font/google'
 import { OrganizationStructuredData, WebSiteStructuredData } from "@/components/structured-data"
 
 // Initialize fonts
-const _geist = V0_Font_Geist({ subsets: ['latin'], weight: ["100","200","300","400","500","600","700","800","900"] })
-const _geistMono = V0_Font_Geist_Mono({ subsets: ['latin'], weight: ["100","200","300","400","500","600","700","800","900"] })
-const _sourceSerif_4 = V0_Font_Source_Serif_4({ subsets: ['latin'], weight: ["200","300","400","500","600","700","800","900"] })
-
 const raleway = Raleway({ subsets: ["latin"], variable: "--font-raleway" })
 const syne = Syne({ subsets: ["latin"], variable: "--font-display" })
 
@@ -78,7 +74,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${raleway.variable} ${syne.variable}`}>
-      <body className={`${_geist.className} min-h-screen bg-background antialiased`}>
+      <body className={`min-h-screen bg-background antialiased font-sans`} suppressHydrationWarning>
         <OrganizationStructuredData />
         <WebSiteStructuredData />
         {children}
