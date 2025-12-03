@@ -121,10 +121,26 @@ export default async function Image({ params }: Props) {
                fontWeight: 'bold',
                color: '#3730a3',
                marginBottom: '30px',
-               border: '4px solid #3730a3'
+               border: '4px solid #3730a3',
+               overflow: 'hidden',
+               position: 'relative',
              }}
           >
-             {member.name.charAt(0)}
+             {member.image ? (
+               // @ts-ignore
+               <img
+                  src={member.image}
+                  width="150"
+                  height="150"
+                  style={{
+                    objectFit: 'cover',
+                    width: '100%',
+                    height: '100%',
+                  }}
+               />
+             ) : (
+               member.name.charAt(0)
+             )}
           </div>
 
           <h1

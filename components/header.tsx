@@ -7,60 +7,6 @@ import { Menu, X } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 import { HandDrawnUnderline, ScribbleDecoration } from "@/components/ui/hand-drawn"
 
-function StickyMan({ className = "" }: { className?: string }) {
-  return (
-    <motion.svg
-      className={className}
-      viewBox="0 0 40 50"
-      fill="none"
-      initial={{ opacity: 0, y: 10 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 0.6, type: "spring", stiffness: 200 }}
-    >
-      {/* Head */}
-      <circle cx="20" cy="8" r="6" stroke="currentColor" strokeWidth="2" fill="none" />
-      {/* Body */}
-      <path d="M20 14 L20 28" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-      {/* Legs - sitting position */}
-      <path
-        d="M20 28 L12 38 L8 38"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M20 28 L28 38 L32 38"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      {/* Arm holding phone */}
-      <path
-        d="M20 18 L28 14 L30 10"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      {/* Phone */}
-      <rect x="28" y="6" width="6" height="10" rx="1" stroke="currentColor" strokeWidth="1.5" fill="none" />
-      {/* Other arm waving */}
-      <motion.path
-        d="M20 18 L12 12 L8 8"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        animate={{ rotate: [0, 10, -10, 0] }}
-        transition={{ duration: 1.5, repeat: Number.POSITIVE_INFINITY }}
-        style={{ transformOrigin: "20px 18px" }}
-      />
-    </motion.svg>
-  )
-}
-
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
@@ -135,7 +81,6 @@ export function Header() {
             transition={{ delay: 0.4 }}
             className="relative hidden sm:block"
           >
-            <StickyMan className="absolute -top-12 left-1/2 -translate-x-1/2 w-10 h-12 text-foreground z-20" />
             <Button
               asChild
               className="relative overflow-visible rounded-xl px-5 sm:px-6 font-semibold bg-foreground text-background hover:bg-foreground/90 border-2 border-foreground shadow-[3px_3px_0px_0px] shadow-primary/40 hover:shadow-[1px_1px_0px_0px] hover:shadow-primary/40 transition-all"

@@ -7,11 +7,13 @@
     "skills": ["Solidity", "Hardhat", "Foundry", "DeFi", "Smart Contracts", "EVM"],
     "socials": {
       "github": "https://github.com/sarvagnakadiya",
-      "twitter": "https://twitter.com/sarvagnakadiya",
-      "linkedin": "https://linkedin.com/in/sarvagnakadiya"
+      "twitter": "https://x.com/sarvagnakadiya",
+      "linkedin": "https://linkedin.com/in/sarvagnakadiya",
+      "farcaster": "https://warpcast.com/sarvagnakadiya",
+      "telegram": "https://t.me/sarvagnakadiya"
     },
     "projects": ["Coincept", "FluidPay", "ChainQ"],
-    "image": "/team/sarvagna.jpg"
+    "image": "https://pbs.twimg.com/profile_images/1948213553237733376/Gv1W60bF_400x400.jpg"
   },
   {
     "id": "bhadresh-makvana",
@@ -20,12 +22,14 @@
     "bio": "Versatile developer bridging the gap between frontend, backend, and blockchain. scalable web3 applications with modern tech stacks.",
     "skills": ["React", "Next.js", "Node.js", "Solidity", "Web3", "System Design"],
     "socials": {
-      "github": "https://github.com/bhadreshmakvana",
-      "twitter": "https://twitter.com/bhadreshmakvana",
-      "linkedin": "https://linkedin.com/in/bhadreshmakvana"
+      "github": "https://github.com/0xbhadresh",
+      "twitter": "https://x.com/0xbhadresh",
+      "linkedin": "https://linkedin.com/in/bhadresh-makvana",
+      "farcaster": "https://warpcast.com/0xshinchain",
+      "telegram": "https://t.me/bhadresh0"
     },
     "projects": ["Coincept", "BasedJack"],
-    "image": "/team/bhadresh.jpg"
+    "image": "https://pbs.twimg.com/profile_images/1965846101132824576/VaXK2aL__400x400.jpg"
   },
   {
     "id": "deepak-rathore",
@@ -34,25 +38,27 @@
     "bio": "Fullstack engineer with a deep focus on Web3 integration. Building seamless dApp experiences from smart contract to UI.",
     "skills": ["Solidity", "React", "Web3.js", "Ethers.js", "The Graph"],
     "socials": {
-      "github": "https://github.com/deepakrathore",
-      "twitter": "https://twitter.com/deepakrathore",
-      "linkedin": "https://linkedin.com/in/deepakrathore"
+      "github": "https://github.com/Deepak973",
+      "twitter": "https://x.com/0xDeepak_",
+      "linkedin": "https://in.linkedin.com/in/deepak-rathore-5b214a184",
+      "farcaster": "https://farcaster.xyz/psydux",
+      "telegram": "https://t.me/0xdeepak"
     },
     "projects": ["HandShake", "DropZone"],
-    "image": "/team/deepak.jpg"
+    "image": "https://avatars.githubusercontent.com/u/59957443?v=4"
   },
   {
-    "id": "jaydeep-patel",
-    "name": "Jaydeep Patel",
+    "id": "jaydip-patel",
+    "name": "jaydip Patel",
     "role": "Senior Frontend Developer",
     "bio": "Frontend specialist crafting pixel-perfect, high-performance user interfaces. Obsessed with UX and interaction design.",
     "skills": ["React", "TypeScript", "Tailwind CSS", "Framer Motion", "UI/UX"],
     "socials": {
       "github": "https://github.com/jaydip676",
-      "twitter": "https://twitter.com/jaydeeppatel",
-      "linkedin": "https://linkedin.com/in/jaydeeppatel"
+      "twitter": "https://twitter.com/jaydippatel",
+      "linkedin": "https://linkedin.com/in/jaydippatel"
     },
     "projects": ["DualSign", "Uniswap-clone"],
-    "image": "/team/jaydeep.jpg"
+    "image": "https://avatars.githubusercontent.com/u/109145648?v=4"
   }
 ]

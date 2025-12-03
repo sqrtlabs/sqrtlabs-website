@@ -138,22 +138,24 @@ export function CTASection() {
               <HandDrawnArrow className="w-6 h-3 text-foreground/70 rotate-90" />
             </motion.div>
 
-            <Button
-              size="lg"
-              asChild
-              className="group rounded-xl px-8 sm:px-10 text-sm sm:text-base font-semibold h-12 sm:h-14 bg-foreground text-background hover:bg-foreground/90 border-2 border-foreground shadow-[4px_4px_0px_0px] shadow-primary/40 hover:shadow-[2px_2px_0px_0px] hover:shadow-primary/40 transition-all"
-            >
-              <Link href="mailto:hello@sqrtlabs.xyz">
-                {"Let's talk"}
-                <motion.span
-                  className="ml-2 inline-block"
-                  animate={{ x: [0, 4, 0] }}
-                  transition={{ duration: 1.5, repeat: Number.POSITIVE_INFINITY }}
-                >
-                  <ArrowRight className="h-4 w-4" />
-                </motion.span>
-              </Link>
-            </Button>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <Button
+                size="lg"
+                asChild
+                className="group rounded-xl px-8 sm:px-10 text-sm sm:text-base font-semibold h-12 sm:h-14 bg-foreground text-background hover:bg-foreground/90 border-2 border-foreground shadow-[4px_4px_0px_0px] shadow-primary/40 hover:shadow-[2px_2px_0px_0px] hover:shadow-primary/40 transition-all"
+              >
+                <Link href="https://t.me/sarvagnakadiya" target="_blank" rel="noopener noreferrer">
+                  {"Let's talk"}
+                  <motion.span
+                    className="ml-2 inline-block"
+                    animate={{ x: [0, 4, 0] }}
+                    transition={{ duration: 1.5, repeat: Number.POSITIVE_INFINITY }}
+                  >
+                    <ArrowRight className="h-4 w-4" />
+                  </motion.span>
+                </Link>
+              </Button>
+            </div>
 
             <motion.p
               className="mt-6 sm:mt-8 font-mono text-xs text-foreground/70"

@@ -181,7 +181,7 @@ export function Footer() {
             <p className="pt-4 font-mono text-xs">
               {"/* "}
               {new Date().getFullYear()}
-              {" SQRT Labs. Built with care */"}
+              {" SQRT Labs. Built with fun */"}
             </p>
           </div>
         </FadeUp>

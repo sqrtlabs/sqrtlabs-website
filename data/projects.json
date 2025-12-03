@@ -23,7 +23,7 @@
     "solutions": [],
     "results": [],
     "techStack": ["Solidity", "Web3", "DeFi", "Smart Contracts"],
-    "timeline": "2024",
+    "timeline": "4 months",
     "team": "1-3 engineers"
   },
   "2": {
@@ -48,7 +48,7 @@
     "solutions": [],
     "results": [],
     "techStack": ["Solidity", "EIP-712", "Gasless", "NFT"],
-    "timeline": "2024",
+    "timeline": "3 months",
     "team": "1-3 engineers"
   },
   "3": {
@@ -74,7 +74,7 @@
     "solutions": [],
     "results": [],
     "techStack": ["USDC", "Gasless", "Web3", "Ethereum"],
-    "timeline": "2024",
+    "timeline": "2 months",
     "team": "1-3 engineers"
   },
   "4": {
@@ -100,7 +100,7 @@
     "solutions": [],
     "results": [],
     "techStack": ["Airdrop", "DeFi", "Smart Contracts", "Token Distribution"],
-    "timeline": "2024",
+    "timeline": "6 weeks",
     "team": "1-3 engineers"
   },
   "5": {
@@ -126,7 +126,7 @@
     "solutions": [],
     "results": [],
     "techStack": ["Multi-sig", "Security", "Blockchain", "Verification"],
-    "timeline": "2024",
+    "timeline": "8 weeks",
     "team": "1-3 engineers"
   },
   "6": {
@@ -153,7 +153,7 @@
     "solutions": [],
     "results": [],
     "techStack": ["Superfluid", "Streaming Payments", "QR Codes", "Web3"],
-    "timeline": "2024",
+    "timeline": "3 months",
     "team": "1-3 engineers"
   },
   "7": {
@@ -180,7 +180,7 @@
     "solutions": [],
     "results": [],
     "techStack": ["Farcaster", "Frames", "Next.js", "Gaming"],
-    "timeline": "2024",
+    "timeline": "1 month",
     "team": "1-3 engineers"
   },
   "8": {
@@ -205,7 +205,7 @@
     "solutions": [],
     "results": [],
     "techStack": ["Uniswap V2", "Uniswap V3", "AMM", "CLAMM", "MEV"],
-    "timeline": "2024",
+    "timeline": "5 months",
     "team": "1-3 engineers"
   },
   "9": {
@@ -232,7 +232,7 @@
     "solutions": [],
     "results": [],
     "techStack": ["AI", "NLP", "Python", "Blockchain", "SQLite"],
-    "timeline": "2024",
+    "timeline": "2 months",
     "team": "1-3 engineers"
   },
   "10": {
@@ -258,7 +258,7 @@
     "solutions": [],
     "results": [],
     "techStack": ["Superfluid", "Hardhat", "Dev Tools", "Streaming"],
-    "timeline": "2024",
+    "timeline": "4 weeks",
     "team": "1-3 engineers"
   }
 }

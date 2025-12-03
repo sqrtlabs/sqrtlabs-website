@@ -6,7 +6,7 @@ import { Footer } from "@/components/footer"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
-import { ArrowLeft, ArrowRight, Check, Github, Globe, Youtube, Heart, MapPin, Calendar, ShieldCheck, ExternalLink } from "lucide-react"
+import { ArrowLeft, ArrowRight, Check, Github, Globe, Youtube, Calendar, ShieldCheck, ExternalLink, LayoutTemplate } from "lucide-react"
 import { 
   DoodleElements,
   HandDrawnUnderline,
@@ -183,15 +183,9 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
                      <span>{project.date}</span>
                    </div>
                  )}
-                 {project.likes && (
-                   <div className="flex items-center gap-2">
-                     <Heart className="w-4 h-4" />
-                     <span>{project.likes} Likes</span>
-                   </div>
-                 )}
                  {project.location && (
                    <div className="flex items-center gap-2">
-                     <MapPin className="w-4 h-4" />
+                     <LayoutTemplate className="w-4 h-4" />
                      <span>{project.location}</span>
                    </div>
                  )}
